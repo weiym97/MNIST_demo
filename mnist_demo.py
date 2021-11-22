@@ -27,7 +27,7 @@ def param_map(raw_dict,eps=1e-5):
     param_dict={}
     layer_1_scale=raw_dict['mlp.0.bn.bn_mean.weight']/(raw_dict['mlp.0.bn.bn_mean.running_var']+eps)**0.5
     param_dict['hidden_layer_weight']=raw_dict['mlp.0.linear.weight']*torch.reshape(layer_1_scale,(-1,1))
-    param_dict['hidden_layer_weight']=param_dict['layer_1_weight'].float()
+    param_dict['hidden_layer_weight']=param_dict['hidden_layer_weight'].float()
     param_dict['hidden_layer_I_ext_mean']=raw_dict['mlp.0.bn.bn_mean.bias']-raw_dict['mlp.0.bn.bn_mean.weight']*raw_dict['mlp.0.bn.bn_mean.running_mean']/(raw_dict['mlp.0.bn.bn_mean.running_var']+eps)**0.5
     param_dict['hidden_layer_I_ext_mean']=param_dict['hidden_layer_I_ext_mean'].float()
     #We set I_ext as constant current input without noise, so hidden_layer_I_ext_std should all be zero
