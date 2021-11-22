@@ -138,11 +138,11 @@ if __name__=='__main__':
             'N_1':800,
             'trial_number':1000,
             'simulation_time':100,
-            'simulation_batch_size':50,
+            'simulation_batch_size':100,
             'dt':0.025}
     data_dir='mnist_file/'
     save_dir=data_dir+'SNN/'
-    sample_number=10
+    sample_number=2
 
     #####################################################################
     #Parametric mapping
